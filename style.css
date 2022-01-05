@@ -1,0 +1,13 @@
+body {
+margin-top: 50px;
+}
+#messageArea {
+display: none;
+}
+.error {
+color: red;
+}
+.privateMsg {
+color: blue;
+}
+    
