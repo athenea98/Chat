@@ -1,14 +1,14 @@
 html, body {
-    background: #efefef;      
-       height:100%;  
-       }
+  background: #efefef;      
+     height:100%;  
+     }
 
-       #messageArea {
-           display: none;
-       }
-       .error {
-           color: red;
-       }
-       .privateMsg {
-           color: blue;
-       }
+     #messageArea {
+         display: none;
+     }
+     .error {
+         color: red;
+     }
+     .privateMsg {
+         color: blue;
+     }

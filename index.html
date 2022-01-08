@@ -2,25 +2,55 @@
 <html lang="en">
     
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        
-        <script src="/socket.io/socket.io.js"></script>
+
+
+        <meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+		<meta name="description" content="Chat App" />
+		<meta name="theme-color" content="#009688" />
+		<meta name="msapplication-TileColor" content="#009688" />
+		
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta
+			name="apple-mobile-web-app-status-bar-style"
+			content="black-translucent"
+		/>
+		<meta name="apple-mobile-web-app-title" content="ChatApp" />
+		<meta name="application-name" content="ChatApp" />
+
+
+        <script src="/socket.io/socket.io.js"></script>      
         <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-
+        
+                
         <link rel="manifest" href="manifest.json" />
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
 		
-		
-        
+      
         <title> Chat Programacion Web I </title>
+        <style>
+            body {
+                margin-top: 50px;
+            }
+            #messageArea {
+                display: none;
+            }
+            .error {
+                color: red;
+            }
+            .privateMsg {
+                color: blue;
+            }
+        </style>
+   
 
-        
     </head>
 
     <body>
+        <main>
             <div class="container">
             
             <div id="userFormArea" class="row">
@@ -144,7 +174,24 @@
                     $chat.append('<div class="typing"><b><i>' + data.user + '</i></b><i> is typing a message...</i></div><br>');
                 });
             });
-        
+
+                
         </script>
+        </main> 
+        
+        <script> 
+            if (navigator.serviceWorker.controller) { 
+                 console.log("Active service worker found, no need to register"); 
+            }else{ 
+             // Register the service worker 
+            navigator.serviceWorker.register("serviceWorker.js", { scope: "./" })
+            .then(function (reg) { 
+                console.log("Service worker has been registered"); 
+            } 
+            )}
+            
+        </script>
+		<script src="./server.js"></script>
+      
     </body>
 </html>

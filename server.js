@@ -7,11 +7,10 @@ let io = require('socket.io')(server);
 let users = {};
 let connections = [];
 
-
+app.use(express.static('public'))
 app.get('/', (req, res, next) => {
     res.sendFile(__dirname + '/index.html');
 });
-
 
 io.sockets.on('connection', (socket) => {
     
@@ -84,6 +83,9 @@ io.sockets.on('connection', (socket) => {
 });
 
 
+
 server.listen(3000, () => {
 	console.log('listening on *:3000');
 });
+
+
