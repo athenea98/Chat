@@ -26,25 +26,14 @@
         <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
         
                 
-        <link rel="manifest" href="manifest.json" />
+        <link rel="manifest" href="/public/manifest.json" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
-		
+		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
       
         <title> Chat Programacion Web I </title>
-        <style>
-            body {
-                margin-top: 50px;
-            }
-            #messageArea {
-                display: none;
-            }
-            .error {
-                color: red;
-            }
-            .privateMsg {
-                color: blue;
-            }
-        </style>
+       
+        
+        
    
 
     </head>
@@ -184,14 +173,14 @@
                  console.log("Active service worker found, no need to register"); 
             }else{ 
              // Register the service worker 
-            navigator.serviceWorker.register("serviceWorker.js", { scope: "./" })
+            navigator.serviceWorker.register("serviceWorker.js", { scope: "./public/" })
             .then(function (reg) { 
                 console.log("Service worker has been registered"); 
             } 
             )}
             
         </script>
-		<script src="./server.js"></script>
+		<script src="/public/server.js"></script>
       
     </body>
 </html>

@@ -5,12 +5,11 @@ const  staticCache = 'v0.01';
 
 const  files = [
 		'./',
-		'./index.html',
-		'./css/style.css',
-    	'./server.js',
+		'/index.html',
+		'/css/style.css',
+    	'/server.js',
     	'./images/favicon.ico',
-    	'./manifest.json',
-    
+    	'/manifest.json',
 ];
 
 // Install

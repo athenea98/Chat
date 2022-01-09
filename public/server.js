@@ -7,10 +7,12 @@ let io = require('socket.io')(server);
 let users = {};
 let connections = [];
 
-app.use(express.static('public'))
+app.use(express.static(__dirname + '/'));
+
 app.get('/', (req, res, next) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/');
 });
+
 
 io.sockets.on('connection', (socket) => {
     

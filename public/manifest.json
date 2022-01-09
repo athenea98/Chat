@@ -2,7 +2,7 @@
     "name": "Chat App",
     "short_name": "ChatApp",
     "description" : "Chat",
-    "start_url": "./index.html",
+    "start_url": "/",
     "lang" : "English",
     "display": "standalone",
     "background_color": "#fdfdfd",
