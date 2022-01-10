@@ -1,0 +1,22 @@
+{
+    "name": "Chat App",
+    "short_name": "ChatApp",
+    "description" : "Chat",
+    "start_url": ".",
+    "lang" : "English",
+    "display": "standalone",
+    "background_color": "#fdfdfd",
+    "theme_color": "#db4938",
+    "orientation": "portrait-primary",
+    "gcm_user_visible_only": true,
+    
+    "icons": [{
+               
+            "src": "/public/images/icons/icon-1240x1240.png",
+            "type": "image/png",
+            "sizes": "1240x1240",
+            "purpose": "any maskable"
+        }
+       
+    ]
+}

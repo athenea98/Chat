@@ -7,10 +7,10 @@ let io = require('socket.io')(server);
 let users = {};
 let connections = [];
 
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/public'));
 
-app.get('/', (req, res, next) => {
-    res.sendFile(__dirname + '/');
+app.get('/public', (req, res, next) => {
+    res.sendFile(__dirname + '/public');
 });
 
 
@@ -19,18 +19,6 @@ io.sockets.on('connection', (socket) => {
     
     connections.push(socket);
     console.log('Connection: ' + connections.length + ' users');
-
-    
-    socket.on('disconnect', (data) => {
-        
-        delete users[socket.username];
-        
-        updateUserNames();
-
-        connections.splice(connections.indexOf(socket), 1);
-        console.log('Disconnection: remains ' + connections.length + ' users');
-    });
-
   
 	socket.on('send message', (data, callback) => {
         

@@ -5,35 +5,30 @@
 
 
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		
 
 		<meta name="description" content="Chat App" />
-		<meta name="theme-color" content="#009688" />
-		<meta name="msapplication-TileColor" content="#009688" />
-		
+		<meta name="theme-color" content="#db4938" />
+		<meta name="msapplication-TileColor" content="#db4938" />
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta
-			name="apple-mobile-web-app-status-bar-style"
-			content="black-translucent"
-		/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 		<meta name="apple-mobile-web-app-title" content="ChatApp" />
 		<meta name="application-name" content="ChatApp" />
+        <link rel="apple-touch-icon" href="./images/logo.png" />
 
 
         <script src="/socket.io/socket.io.js"></script>      
         <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
         
                 
-        <link rel="manifest" href="/public/manifest.json" />
+        <link rel="manifest" href="../manifest.json" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
 		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
       
-        <title> Chat Programacion Web I </title>
-       
-        
-        
+        <title> Chat Programacion Web I </title>     
    
 
     </head>
@@ -45,9 +40,9 @@
             <div id="userFormArea" class="row">
                 <div class="col-md-6">
                     <form id="userForm">
-                        <div class="form-group">
-                            <label>Nombre de Usuario</label>
-                            <input  id="userName" class="form-control">
+                        <div class="form-group" id="titleName">
+                            <label>Nombre de Usuario </label>
+                            <input  id="userName" class="form-control" placeholder="Introduzca Nickname...">
                             <br>
                             <input type="submit" class="btn btn-primary" value="Iniciar sesión con nombre de usuario">
                         </div>
@@ -79,10 +74,10 @@
                     
                     <form id="messageForm">
                         <div class="form-group">
-                            <label>Introduzca mensaje</label>
-                            <textarea  id="message" class="form-control"></textarea>
+                            
+                            <textarea  id="message" class="form-control" placeholder="Introduzca mensaje"></textarea>
                             <br>
-                            <input type="submit" class="btn btn-primary" value="Send Message">
+                            <input id="send" type="submit" class="btn btn-primary" value="Enviar">
                         </div>
                     </form>
                 </div>
@@ -102,6 +97,7 @@
                 let $userFormArea = $('#userFormArea');
                 let $users = $('#users');
                 let $username = $('#userName');
+                
 
                 $messageForm.submit( (e) => {
                     
@@ -148,6 +144,7 @@
                     $users.html(html);
                 });
 
+                                
                 socket.on('private message', (data) => {
                     
                     $('.typing').remove();
@@ -169,18 +166,18 @@
         </main> 
         
         <script> 
-            if (navigator.serviceWorker.controller) { 
-                 console.log("Active service worker found, no need to register"); 
-            }else{ 
-             // Register the service worker 
-            navigator.serviceWorker.register("serviceWorker.js", { scope: "./public/" })
-            .then(function (reg) { 
-                console.log("Service worker has been registered"); 
-            } 
-            )}
+            // if this is true we have access to this serviceWorker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        // enable us to create our own service worker
+        navigator.serviceWorker.register('../serviceworker.js')
+          .then((reg) => console.log('Success: ', reg.scope))
+          .catch((err) => console.log('Failure: ', err));
+      })
+    }
             
         </script>
-		<script src="/public/server.js"></script>
+		<script src="../server.js"></script>
       
     </body>
 </html>
